@@ -1,0 +1,36 @@
+formato de los registros
+*respeto orden de enunciado
+*respeto tamanio de strings
+
+si hay dos o mas archivos q almacenan los registros con los mismos datos hago una sola estructura
+
+BAJAR O PASAR A MEMORIA LOS DATOS DE UN ARCHIVO
+
+si necesito actualizar un archivo 
+
+*si se cuantos datos hay lo puedo bajar a un vector 
+
+*si no se cuantos abro, leo y bajo el dato (bajo,actualizo, y reescribo el archivo)
+
+FILTROS SOBRE DATOS
+
+*no siempre me sirve todo, entonces puedo filtrar, el dato q me sirve lo bajo a memoria
+
+ARCHIVOS RELACIONADOS
+
+asumo q los datos estan bien grabados , salvo q me pida que si no se encuentra un registro los grabo en el archivo.-----> generar archivos de error
+
+abro un archivo de escritura con los errores.
+
+ARCHIVO DE LECTURA
+
+priorizo trabajar en memoria, si yo tengo q hacer varios calculos en un mismo archivo priorizo abrirlo una sola vez y hacer todo el recorrido del archivo, trato d no abrir y cerrar el archivo varias veces.
+
+
+Trato de NO abrir varias veces el mismo archivo, trato d abrir una sola vez y listo
+
+------NO PUEDO GRABAR DATIS Y LEER DEL MISMO ARCHIVO AL MISMO TIEMPO
+
+TENGO QUE GRABAR EL ARCHIVO, CERRARLO(fclose) Y VOLVERLO A ABRIR PERO CON MODO LECTURA.!!!!!
+
+

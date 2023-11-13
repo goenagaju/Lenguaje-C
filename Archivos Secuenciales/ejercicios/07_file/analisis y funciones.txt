@@ -1,0 +1,80 @@
+estructura para archivo aero1
+
+dia
+nro vuelo
+valor pas
+cant pas
+---------------------------------------------------------------------
+leervuelos
+{
+
+
+
+}
+---------------------------------------------------------------------
+
+actualizar pasaj(vv,ce) //abro el archivo de pasajeros 
+{
+	 file*archPasa;
+	leo (&pasajeros)
+	while(!feof archPasa)
+	{
+	
+` 		//busco en vv el nro vuelo;
+		si pos!=-1
+		vv[pos].cantPas++;
+		vuelvo a leer	
+	
+	}
+	
+	//cierro el archivo
+}
+/*leo cada registro, busco si existe el nro vuelo y sumo un pasajero*/
+---------------------------------------------------------------------
+//busqueda
+---------------------------------------------------------------------
+generar aero1
+{
+	file*arch;
+	file*exportar;
+	
+//abro arch
+//verifico q abran bien
+
+	pregunto si quiero generar el csv, si me puso q si abro el archvivo exportar en "wt"
+	//verifico q abra bien
+
+	con un for asigno
+	aero.dia=vv[i].dia
+	aero.nrovuelo=vv[i].nro_vuelo;
+	etc;
+
+	fwrite (&aero1);
+//fuera del for cierro el arch
+
+if(Si se abrio el archivo .csv)
+//cierro el .csv
+
+}
+---------------------------------------------------------------------
+constultar csv
+{
+quiere generarlo?
+si o no
+y devuelve S o N
+}
+---------------------------------------------------------------------
+main
+{
+ cargo vuelos
+cant=leervuelos';
+
+if(Cant<0)
+actualizo datos
+actualizar(vv[],cant);
+genero aero1 (vv[],cant);
+
+}
+----------------------------------------------------------------------
+para poder exportar un archivo reutilizo la carga de Aero1 pero con .csv en vez de .dat
+uso el "wb"

@@ -1,0 +1,142 @@
+Se dispone de un archivo “EXPENSAS.dat” con los importes según cada uno de las 5 categorías de un
+complejo de edificios. Este archivo consta de un (1) solo registro con los 5 importes correspondientes en
+forma correlativa a la categoría 1, categoría 2 hasta la 5.
+
+ Además, se dispone del archivo “PROPIETARIO.dat” con los datos de cada propietario:
+• DNI (entero)
+• Apellido y Nombre (50 caracteres)
+• Domicilio (50 caracteres)
+
+Se sabe que existen como MÁXIMO 100 PROPIETARIOS.
+
+También se dispone del archivo “PAGOS.dat” con los efectuados por cada propietario que ha pagado la
+expensa:
+• DNI (entero)
+• Mes de pago (entero)
+• Categoría (entero de 1 a 5)
+
+a. Informar el siguiente listado, con “x” el mes o meses que NO pagó.
+
+Apellido y Nombre 	Mes 1 Mes 2 …. Mes 12
+xxxxxxxx, xxxxxxxxx 	x 	x
+xxxxxxxx, xxxxxxxxx 	x 	x
+
+b. Total pagado por cada propietario, ordenando en forma ascendente por total pagado.
+Apellido y Nombre Total Pagado
+xxxxxxxx, xxxxxxxxx $ xxx,xx
+xxxxxxxx, xxxxxxxxx $ xxx,xx
+
+c. Generar el archivo “DEUDAS.dat” con aquellos propietarios que NO han pagado más de 6 meses, con
+igual diseño que el archivo “PROPIETARIOS.dat”.
+
+d. Cuando NO se encuentra el DNI, grabar en el archivo “ERROR.dat” la información contenida en el archivo
+“PAGOS.dat”.
+/--------------------------------------------------------------------------------------------------------\
+*YA CREADO*EXPENSAS.dat----> importes segun c/u de las 5 categorias de un complejo de edificios 
+
+"consta de un (1) solo registro con los 5 importes correspondientes en
+forma correlativa a la categoría 1, categoría 2 hasta la 5." 
+
+una sola fila q esta dividida en 5 partes
+
+registro 1 del archivo--->[cat1 cat2 cat3 cat4 cat5]
+
+*YA CREADO* “PROPIETARIO.dat”-----> estructura Propiestario
+
+{
+	int dni;
+	char ayn[51];
+	char domicilio[51];
+}sPropietario;
+-----------------------------------------------------------------------------------------------------------
+
+MAXIMO 100 PROPIETARIOS----> vpropietarios[100];
+
+“PAGOS.dat”----> 
+
+struct
+{
+
+ int DNI;
+ int Mes_de_pago;
+ int Categoría; (entero de 1 a 5)
+
+}sPagos;
+
+
+int main()
+{
+	float v[5]; ---> importes de las 5 categorias (i+1 es la categoria en la q me posiciono)
+	sPagos pagos; (guardo los datos que tiene el archivo sPagos)
+	sPropietarios vprop[100]; (carga parcial del vector q me retorna la cantidad de propiet.)
+	int cant; // cantidad de propietarios cargados;
+	
+
+	cant=leoPropietarios(propietarios);
+	leoPagos(pagos,cant); ---> si no encuentro el dni lo cargo en archivo ERROR.dat
+	
+}
+
+-------------------------------------------------------------------------------------------
+
+Punto A , es una matriz , propietario x mes , [100] x [12] ---> podria ser char o float , la inicializo si es float
+
+un propietario puede pagar todo el anio, pagar nada, o pagar algunos meses.*1
+
+*1  desde el archivo de pagos si el mes==0 pongo x en ese mes. ---> funcion q recorra la mat y compare
+
+como actualizo la mat? 
+cada uno de los registro lo copio en una variable de tipo sPago
+ 
+busco el dni en vProp[];
+si lo encuentro muestro nya (fila) y en las columnas si la mat es float(si la propxmes==0 printf"x") y si es char ("x")
+
+si no encuentro el dni lo almaceno en archivo ERROR
+
+-----------------------------------------------------------------------------------------
+
+PUNTO B.
+ Total pagado por cada propietario, ordenando en forma ascendente por total pagado.
+
+Apellido y Nombre 	Total Pagado
+xxxxxxxx, xxxxxxxxx 	$ xxx,xx
+xxxxxxxx, xxxxxxxxx 	$ xxx,xx
+
+
+opciones:
+
+*hago un acumulador por fila si la matriz es tipo float;
+**si la mat es tipo char hago un vector paralelo a la mat y acumulo el total pagado x propietario.
+***puedo hacer un vector de una nueva struct (nya y total pagado) v[100]
+
+como actualizo el vector total pagado?
+
+*actualizarlo mientras vamos recorriendo el archivo de pagos y actualizando a su vez la mat
+**si encuentro el dni actualizo el vfloat en la fila q encontramos el dni con el valor de categorias en el indice [pagos.cat-1] --> importe categoria
+
+una vez q actualize , cargo el nuevo vector , ordeno por importe y muestro.
+
+-------------------------------------------------------------------------------------------
+PUNTO C.
+
+cuantos meses no pago el usuario? si mes==0 con++;
+
+si cont>6 grabo el vector original (fila de la matriz)de propietarios en el archivo de deudas.dat
+
+-----------------------------------------------------------------------------------------------
+
+funciones
+
+busqueda, ordenamiento, rango de categorias.
+
+
+para leer el archivo categorias
+
+fread(vectorprop(sin & porq es un vector y marca la direccion de inicio),sizeof(float),ce(son 5 en este caso),archImpo);
+
+
+
+
+
+
+
